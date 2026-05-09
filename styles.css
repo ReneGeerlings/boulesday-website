@@ -1,0 +1,159 @@
+:root {
+  --paper: #f7f3ec;
+  --ink: #1c1c1c;
+  --muted: #5a5a5a;
+  --rule: #e5e0d6;
+  --accent: #2d6a4f;
+  --accent-soft: #d8e2dc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1c1c1c;
+    --ink: #f7f3ec;
+    --muted: #a8a8a8;
+    --rule: #333;
+    --accent: #74c69d;
+    --accent-soft: #2d3a36;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+}
+
+p, ul {
+  margin: 0 0 1rem;
+}
+
+ul {
+  padding-left: 1.25rem;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--rule);
+  padding: 0.1em 0.35em;
+  border-radius: 0.25em;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero img {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.hero h1 {
+  margin: 0;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-top: 0.25rem;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  background: var(--accent);
+  color: var(--paper);
+  text-decoration: none;
+  border-radius: 0.6rem;
+  font-weight: 600;
+}
+
+.cta:hover {
+  filter: brightness(1.05);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--rule);
+  border-radius: 0.6rem;
+}
+
+.card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+footer a {
+  margin-right: 1rem;
+}
