@@ -145,10 +145,9 @@
       position: relative;
       width: 100%;
       max-width: 520px;
-      aspect-ratio: 4 / 3;
       background: #1f2421;
       border-radius: 22px;
-      padding: 18px;
+      padding: 14px;
       box-shadow:
         0 2px 0 rgba(255,255,255,0.06) inset,
         0 30px 60px -20px rgba(31,36,33,0.35),
@@ -158,7 +157,7 @@
       /* camera */
       content: "";
       position: absolute;
-      top: 8px;
+      top: 6px;
       left: 50%;
       transform: translateX(-50%);
       width: 5px;
@@ -168,15 +167,15 @@
     }
     .ipad-mockup .screen {
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4 / 3;
       border-radius: 8px;
       overflow: hidden;
-      background: #ede4d0;
+      background: #ffffff;
     }
     .ipad-mockup .screen img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
 
@@ -254,14 +253,34 @@
       top: 32px;
     }
     .does-aside .frame {
+      position: relative;
       aspect-ratio: 4 / 3;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #ede4d0;
-      border: 1px solid #e6dfd1;
-      box-shadow: 0 18px 40px -24px rgba(31,36,33,0.25);
+      border-radius: 22px;
+      background: #1f2421;
+      padding: 14px;
+      box-shadow:
+        0 2px 0 rgba(255,255,255,0.06) inset,
+        0 18px 40px -24px rgba(31,36,33,0.25);
     }
-    .does-aside .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .does-aside .frame::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #3a3f3b;
+    }
+    .does-aside .frame .screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .does-aside .frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
     .does-aside .caption {
       margin-top: 12px;
       font-size: 0.85rem;
@@ -400,9 +419,7 @@
       line-height: 1.3;
       color: #1f2421;
       margin: 0;
-      max-width: 22ch;
-      margin-left: auto;
-      margin-right: auto;
+      text-wrap: balance;
     }
 
     /* Not-yet block */
@@ -611,8 +628,10 @@
       </div>
       <aside class="does-aside" aria-hidden="false">
         <div class="frame">
-          <img src="screenshot-opzetten.png?v=2" alt="Toernooi opzetten"
-               onerror="this.style.display='none'; this.parentNode.innerHTML='&lt;div class=\&quot;placeholder\&quot;&gt;&lt;span&gt;screenshot-opzetten.png&lt;br&gt;Toernooi opzetten&lt;/span&gt;&lt;/div&gt;';">
+          <div class="screen">
+            <img src="screenshot-opzetten.png?v=2" alt="Toernooi opzetten"
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='&lt;div class=\&quot;placeholder\&quot;&gt;&lt;span&gt;screenshot-opzetten.png&lt;br&gt;Toernooi opzetten&lt;/span&gt;&lt;/div&gt;';">
+          </div>
         </div>
       </aside>
     </div>
@@ -659,8 +678,7 @@
   <!-- Sfeerblok -->
   <section class="mood">
     <div class="mood-image">
-      <img src="sfeer-baan.jpg?v=1" alt="jeu de boules-baan met iPad op klaptafel"
-           onerror="this.style.display='none'; this.parentNode.innerHTML='&lt;div class=\&quot;placeholder\&quot;&gt;&lt;span&gt;sfeer-baan.jpg&lt;br&gt;jeu de boules-baan met iPad op klaptafel&lt;/span&gt;&lt;/div&gt;';">
+      <img src="sfeer-baan.jpg?v=2" alt="Drie boules en het but op een jeu-de-boulesbaan, omzoomd door planten">
     </div>
     <div class="mood-quote">
       <blockquote>“Eén toestel, het hele toernooi.”</blockquote>

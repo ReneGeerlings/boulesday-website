@@ -92,22 +92,23 @@
     .hero-visual { display: flex; justify-content: center; align-items: center; }
     .ipad-mockup {
       position: relative; width: 100%; max-width: 520px;
-      aspect-ratio: 4 / 3;
-      background: #1f2421; border-radius: 22px; padding: 18px;
+      background: #1f2421; border-radius: 22px; padding: 14px;
       box-shadow: 0 2px 0 rgba(255,255,255,0.06) inset,
                   0 30px 60px -20px rgba(31,36,33,0.35),
                   0 12px 24px -12px rgba(31,36,33,0.25);
     }
     .ipad-mockup::before {
-      content: ""; position: absolute; top: 8px; left: 50%;
+      content: ""; position: absolute; top: 6px; left: 50%;
       transform: translateX(-50%); width: 5px; height: 5px;
       border-radius: 50%; background: #3a3f3b;
     }
     .ipad-mockup .screen {
-      width: 100%; height: 100%; border-radius: 8px;
-      overflow: hidden; background: #ede4d0;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 8px;
+      overflow: hidden; background: #ffffff;
     }
-    .ipad-mockup .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ipad-mockup .screen img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     .placeholder {
       position: relative; width: 100%; height: 100%;
@@ -160,12 +161,22 @@
     .does-grid .ordered-steps { max-width: none; margin-left: 0; margin-right: 0; }
     .does-aside { position: sticky; top: 32px; }
     .does-aside .frame {
-      aspect-ratio: 4 / 3; border-radius: 16px;
-      overflow: hidden; background: #ede4d0;
-      border: 1px solid #e6dfd1;
-      box-shadow: 0 18px 40px -24px rgba(31,36,33,0.25);
+      position: relative;
+      aspect-ratio: 4 / 3; border-radius: 22px;
+      background: #1f2421; padding: 14px;
+      box-shadow: 0 2px 0 rgba(255,255,255,0.06) inset,
+                  0 18px 40px -24px rgba(31,36,33,0.25);
     }
-    .does-aside .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .does-aside .frame::before {
+      content: ""; position: absolute; top: 6px; left: 50%;
+      transform: translateX(-50%); width: 5px; height: 5px;
+      border-radius: 50%; background: #3a3f3b;
+    }
+    .does-aside .frame .screen {
+      width: 100%; height: 100%; border-radius: 8px;
+      overflow: hidden; background: #ffffff;
+    }
+    .does-aside .frame img { width: 100%; height: 100%; object-fit: contain; display: block; }
 
     .ordered-steps {
       counter-reset: step; list-style: none; padding: 0; margin: 24px 0 0;
@@ -208,7 +219,7 @@
       font-family: "Georgia", "Times New Roman", serif;
       font-size: 1.9rem; font-style: italic; line-height: 1.3;
       color: #1f2421; margin: 0;
-      max-width: 22ch; margin-left: auto; margin-right: auto;
+      text-wrap: balance;
     }
 
     .not-yet ul { list-style: none; padding: 0; margin: 16px auto; max-width: 680px; }
@@ -304,7 +315,7 @@
       <div class="hero-visual">
         <div class="ipad-mockup" role="img" aria-label="BoulesDay schedule screen on iPad">
           <div class="screen">
-            <img src="hero-schema.png?v=2" alt="BoulesDay schedule screen on iPad"
+            <img src="hero-schema.png?v=3" alt="BoulesDay schedule screen on iPad"
                  onerror="this.style.display='none'; this.parentNode.innerHTML='&lt;div class=\&quot;placeholder\&quot;&gt;&lt;span&gt;hero-schema.png&lt;br&gt;Schedule screen on iPad&lt;/span&gt;&lt;/div&gt;';">
           </div>
         </div>
@@ -369,8 +380,10 @@
       </div>
       <aside class="does-aside" aria-hidden="false">
         <div class="frame">
-          <img src="screenshot-opzetten.png?v=2" alt="Setting up a tournament"
-               onerror="this.style.display='none'; this.parentNode.innerHTML='&lt;div class=\&quot;placeholder\&quot;&gt;&lt;span&gt;screenshot-opzetten.png&lt;br&gt;Setting up a tournament&lt;/span&gt;&lt;/div&gt;';">
+          <div class="screen">
+            <img src="screenshot-opzetten.png?v=3" alt="Setting up a tournament"
+                 onerror="this.style.display='none'; this.parentNode.innerHTML='&lt;div class=\&quot;placeholder\&quot;&gt;&lt;span&gt;screenshot-opzetten.png&lt;br&gt;Setting up a tournament&lt;/span&gt;&lt;/div&gt;';">
+          </div>
         </div>
       </aside>
     </div>
@@ -417,8 +430,7 @@
   <!-- Mood -->
   <section class="mood">
     <div class="mood-image">
-      <img src="sfeer-baan.jpg?v=1" alt="jeu de boules lane with iPad on a folding table"
-           onerror="this.style.display='none'; this.parentNode.innerHTML='&lt;div class=\&quot;placeholder\&quot;&gt;&lt;span&gt;sfeer-baan.jpg&lt;br&gt;jeu de boules lane with iPad on a folding table&lt;/span&gt;&lt;/div&gt;';">
+      <img src="sfeer-baan.jpg?v=2" alt="Three boules and the jack on a jeu de boules lane, framed by greenery">
     </div>
     <div class="mood-quote">
       <blockquote>“One device, the whole tournament.”</blockquote>
