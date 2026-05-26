@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="BoulesDay — gebruikershandleiding. Van toernooi opzetten tot eindstand.">
+  <link rel="alternate" hreflang="nl" href="handleiding.html">
+  <link rel="alternate" hreflang="en" href="en/handleiding.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23c8553d'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23f4ead5'/%3E%3C/svg%3E">
   <title>Handleiding — BoulesDay</title>
   <style>
-    /* Reset + basics */
     *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
     body {
@@ -23,11 +24,10 @@
     a { color: #c8553d; text-decoration: underline; text-underline-offset: 3px; }
     a:hover { color: #a04129; }
 
-    /* Top nav (kleine balk) */
     .topnav {
       background: #f4ead5;
       border-bottom: 1px solid #e6dfd1;
-      padding: 16px 24px;
+      padding: 14px 24px;
     }
     .topnav__inner {
       max-width: 1120px;
@@ -46,27 +46,40 @@
       text-decoration: none;
     }
     .topnav__brand:hover { color: #c8553d; }
+    .topnav__right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
     .topnav__back {
       font-size: 0.95rem;
       color: #3a3f3b;
       text-decoration: none;
     }
     .topnav__back:hover { color: #c8553d; }
-    .topnav__back::before {
-      content: "←";
-      margin-right: 6px;
+    .topnav__back::before { content: "←"; margin-right: 6px; }
+    .lang { display: flex; gap: 4px; font-size: 0.9rem; }
+    .lang a {
+      color: #5a5f5b;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      line-height: 1.2;
+    }
+    .lang a:hover { color: #1f2421; }
+    .lang a.is-active {
+      color: #1f2421;
+      font-weight: 600;
+      background: #ede4d0;
     }
 
-    /* Hero */
     .doc-hero {
       background: #f4ead5;
       padding: 56px 24px 48px;
       border-bottom: 1px solid #e6dfd1;
     }
-    .doc-hero__inner {
-      max-width: 860px;
-      margin: 0 auto;
-    }
+    .doc-hero__inner { max-width: 860px; margin: 0 auto; }
     .doc-hero h1 {
       font-family: "Georgia", "Times New Roman", serif;
       font-weight: 600;
@@ -82,7 +95,6 @@
       max-width: 56ch;
     }
 
-    /* Layout: TOC + content */
     .doc-layout {
       max-width: 1120px;
       margin: 0 auto;
@@ -93,12 +105,7 @@
       align-items: start;
     }
 
-    /* TOC */
-    .toc {
-      position: sticky;
-      top: 24px;
-      font-size: 0.95rem;
-    }
+    .toc { position: sticky; top: 24px; font-size: 0.95rem; }
     .toc__label {
       font-family: "Georgia", "Times New Roman", serif;
       font-size: 0.85rem;
@@ -110,16 +117,11 @@
       font-weight: 400;
     }
     .toc ol {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      list-style: none; padding: 0; margin: 0;
       counter-reset: toc;
       border-left: 1px solid #e6dfd1;
     }
-    .toc li {
-      counter-increment: toc;
-      margin: 0;
-    }
+    .toc li { counter-increment: toc; margin: 0; }
     .toc a {
       display: block;
       padding: 6px 0 6px 16px;
@@ -129,28 +131,12 @@
       margin-left: -1px;
       line-height: 1.35;
     }
-    .toc a:hover {
-      color: #1f2421;
-      border-left-color: #c8553d;
-    }
-    .toc a.is-active {
-      color: #1f2421;
-      border-left-color: #c8553d;
-      font-weight: 600;
-    }
+    .toc a:hover { color: #1f2421; border-left-color: #c8553d; }
+    .toc a.is-active { color: #1f2421; border-left-color: #c8553d; font-weight: 600; }
 
-    /* Content */
-    .doc-content {
-      max-width: 720px;
-      min-width: 0;
-    }
-    .doc-content section {
-      padding: 0 0 40px;
-    }
-    .doc-content section + section {
-      padding-top: 40px;
-      border-top: 1px solid #e6dfd1;
-    }
+    .doc-content { max-width: 720px; min-width: 0; }
+    .doc-content section { padding: 0 0 40px; }
+    .doc-content section + section { padding-top: 40px; border-top: 1px solid #e6dfd1; }
     .doc-content h2 {
       font-family: "Georgia", "Times New Roman", serif;
       font-weight: 600;
@@ -168,16 +154,9 @@
       color: #c8553d;
       margin: 0 0 6px;
     }
-    .doc-content p {
-      margin: 0 0 14px;
-      max-width: 64ch;
-    }
+    .doc-content p { margin: 0 0 14px; max-width: 64ch; }
     .doc-content p:last-child { margin-bottom: 0; }
-    .doc-content ul {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 0;
-    }
+    .doc-content ul { list-style: none; padding: 0; margin: 12px 0 0; }
     .doc-content ul li {
       position: relative;
       padding: 6px 0 6px 22px;
@@ -186,17 +165,13 @@
     .doc-content ul li::before {
       content: "";
       position: absolute;
-      left: 4px;
-      top: 16px;
-      width: 6px;
-      height: 6px;
+      left: 4px; top: 16px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: #c8553d;
     }
     .doc-content ol.steps {
-      list-style: none;
-      padding: 0;
-      margin: 16px 0 0;
+      list-style: none; padding: 0; margin: 16px 0 0;
       counter-reset: substep;
     }
     .doc-content ol.steps li {
@@ -208,21 +183,13 @@
     .doc-content ol.steps li::before {
       content: counter(substep) ".";
       position: absolute;
-      left: 0;
-      top: 4px;
+      left: 0; top: 4px;
       font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       font-size: 0.95rem;
       color: #5a5f5b;
       width: 24px;
     }
-
-    /* Inline kbd-achtige UI-aanduiding */
-    .ui {
-      font-weight: 600;
-      color: #1f2421;
-    }
-
-    /* Notitie/tip-blokje */
+    .ui { font-weight: 600; color: #1f2421; }
     .doc-content .note {
       margin: 20px 0 0;
       padding: 14px 18px;
@@ -233,7 +200,6 @@
       max-width: 64ch;
     }
 
-    /* Footer */
     footer {
       background: #1f2421;
       color: #c8c3b6;
@@ -245,6 +211,7 @@
     footer .links { margin-bottom: 12px; }
     footer .links a { margin: 0 8px; }
     footer .copyright { margin-top: 14px; }
+    footer .copyright a { color: #c8c3b6; }
     footer .more {
       margin: 18px auto 0;
       padding-top: 16px;
@@ -256,13 +223,8 @@
     footer .more a { color: #c8c3b6; margin: 0 6px; }
     footer .more strong { color: #c8c3b6; font-weight: 500; }
 
-    /* Mobile */
     @media (max-width: 820px) {
-      .doc-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        padding: 32px 24px 56px;
-      }
+      .doc-layout { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px 56px; }
       .toc { position: static; }
       .toc ol { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
       .doc-hero { padding: 40px 24px 32px; }
@@ -277,10 +239,16 @@
 </head>
 <body>
 
-  <nav class="topnav">
+  <nav class="topnav" aria-label="Hoofdnavigatie">
     <div class="topnav__inner">
       <a class="topnav__brand" href="index.html">BoulesDay</a>
-      <a class="topnav__back" href="index.html">terug naar overzicht</a>
+      <div class="topnav__right">
+        <div class="lang" role="group" aria-label="Taal kiezen">
+          <a href="handleiding.html" class="is-active" aria-current="page" lang="nl">NL</a>
+          <a href="en/handleiding.html" lang="en">EN</a>
+        </div>
+        <a class="topnav__back" href="index.html">terug naar overzicht</a>
+      </div>
     </div>
   </nav>
 
@@ -297,14 +265,16 @@
       <p class="toc__label">Inhoud</p>
       <ol>
         <li><a href="#welkom">Welkom bij BoulesDay</a></li>
-        <li><a href="#aanmaken">Stap 1 — Toernooi aanmaken</a></li>
-        <li><a href="#opzetten">Stap 2 — Toernooi opzetten</a></li>
-        <li><a href="#schema">Stap 3 — Schema genereren</a></li>
+        <li><a href="#nieuw">Stap 1 — Nieuw toernooi starten</a></li>
+        <li><a href="#namen">Stap 2 — Spelernamen en tijden</a></li>
+        <li><a href="#schema">Stap 3 — Schema maken</a></li>
+        <li><a href="#hoe-schema">Hoe maakt de app het schema?</a></li>
         <li><a href="#scores">Stap 4 — Scores invoeren</a></li>
         <li><a href="#ranglijst">De ranglijst</a></li>
         <li><a href="#eindstand">De eindstand</a></li>
         <li><a href="#printen">Printen en delen</a></li>
         <li><a href="#tips">Handige tips</a></li>
+        <li><a href="#regels">Officiële regels en bronnen</a></li>
         <li><a href="#feedback">Feedback geven</a></li>
       </ol>
     </aside>
@@ -313,49 +283,66 @@
 
       <section id="welkom">
         <h2>Welkom bij BoulesDay</h2>
-        <p>BoulesDay helpt je een jeu-de-boulestoernooi te organiseren — van opzet tot eindstand.</p>
+        <p>Met BoulesDay maak je een toernooi voor jeu de boules of pétanque. Het werkt voor één dag.</p>
         <ul>
-          <li>Jij maakt de teams aan; de app loot het speelschema.</li>
+          <li>Jij voert de teams in. De app maakt het speelschema.</li>
           <li>Tijdens de dag vul je alleen de scores in.</li>
-          <li>De ranglijst en de eindstand worden automatisch berekend.</li>
-          <li>Alles blijft op je apparaat bewaard, ook na een update van de app.</li>
+          <li>De app houdt de ranglijst en de eindstand zelf bij.</li>
+          <li>Alles blijft op je iPhone of iPad staan. Ook na een update.</li>
         </ul>
       </section>
 
-      <section id="aanmaken">
+      <section id="nieuw">
         <p class="eyebrow">Stap 1</p>
-        <h2>Toernooi aanmaken</h2>
+        <h2>Nieuw toernooi starten</h2>
+        <p>Je begint met een paar simpele vragen.</p>
         <ol class="steps">
-          <li>Tik op het beginscherm rechtsboven op de knop <span class="ui">+</span>.</li>
-          <li>Het nieuwe toernooi opent meteen in het opzet-scherm.</li>
-          <li>Eerdere toernooien staan op het beginscherm onder <span class="ui">Actief</span> of <span class="ui">Archief</span>.</li>
-          <li>Veeg een toernooi naar links om het te verwijderen.</li>
+          <li>Tik op het beginscherm rechtsboven op de <span class="ui">+</span> knop.</li>
+          <li>Vul in: naam, datum, hoeveel banen, hoeveel teams en hoeveel rondes.</li>
+          <li>Heb je verschillende soorten banen (binnen, buiten, overdekt)? Tik op <span class="ui">Type toevoegen</span> en geef per soort het aantal op.</li>
+          <li>Tik op <span class="ui">Volgende</span>. Je ziet nu een voorvertoning: hoeveel wedstrijden iedereen speelt en hoe lang het toernooi duurt.</li>
+          <li>Klopt het? Tik op <span class="ui">Toernooi opzetten</span>. Klopt het niet? Tik op het pijltje terug en pas de cijfers aan.</li>
         </ol>
       </section>
 
-      <section id="opzetten">
+      <section id="namen">
         <p class="eyebrow">Stap 2</p>
-        <h2>Toernooi opzetten</h2>
-        <p>Vul in het opzet-scherm van boven naar beneden alle gegevens in.</p>
-        <ul>
-          <li><span class="ui">Toernooi:</span> naam, datum en eventueel de vereniging.</li>
-          <li><span class="ui">Banen:</span> het aantal beschikbare banen.</li>
-          <li><span class="ui">Speelregels:</span> Op punten (tot 13), of Op punten of tijd met een speeltijd per ronde.</li>
-          <li><span class="ui">Rondes &amp; tijden:</span> aantal rondes en aanvangstijden — of gebruik <span class="ui">Auto-invul tijden</span>. Tik tussen twee rondes op <span class="ui">Pauze toevoegen</span>.</li>
-          <li><span class="ui">Teams:</span> tik op <span class="ui">Team toevoegen</span>. Twee spelers zijn verplicht, een derde mag (triplette).</li>
-        </ul>
+        <h2>Spelernamen en tijden</h2>
+        <p>Je komt nu in het opzet-scherm. Hier maak je het toernooi af.</p>
+        <ol class="steps">
+          <li>Vul bij elk team de namen van de spelers in. Twee namen is genoeg. Een derde mag (triplette).</li>
+          <li>Wil je een team erbij of weghalen? Dat kan ook hier nog.</li>
+          <li>Pas zo nodig de aanvangstijden van de rondes aan. Of tik op <span class="ui">Auto-invul tijden</span>.</li>
+          <li>Wil je een pauze tussen twee rondes? Tik op <span class="ui">Pauze toevoegen</span>.</li>
+          <li>Bij <span class="ui">Speelregels</span> kies je <span class="ui">Op punten (tot 13)</span> of <span class="ui">Op punten of tijd</span>.</li>
+        </ol>
       </section>
 
       <section id="schema">
         <p class="eyebrow">Stap 3</p>
-        <h2>Schema genereren</h2>
-        <p>Het schema bepaalt wie tegen wie speelt. Je hebt minstens 2 teams en 1 ronde nodig.</p>
+        <h2>Schema maken</h2>
+        <p>Nu maakt de app het rooster. Dat bepaalt wie tegen wie speelt en op welke baan.</p>
+        <ol class="steps">
+          <li>Tik op <span class="ui">Schema genereren</span>. De app kiest voor elke ronde wie tegen wie speelt.</li>
+          <li>Tik daarna op <span class="ui">Schema bekijken</span> om alles te zien.</li>
+          <li>Niet tevreden? Tik nog een keer op <span class="ui">Schema genereren</span>. Je krijgt dan een andere indeling.</li>
+          <li>Heb je al scores ingevuld? Wis die eerst voor je opnieuw loot.</li>
+          <li>Klopt alles? Tik rechtsboven op <span class="ui">Naar toernooi</span> om te beginnen.</li>
+        </ol>
+      </section>
+
+      <section id="hoe-schema">
+        <h2>Hoe maakt de app het schema?</h2>
+        <p>Goed om te weten wat de app doet. Zo snap je het rooster en de meldingen.</p>
         <ul>
-          <li>Tik op <span class="ui">Schema genereren</span>. De app loot per ronde de paringen en verdeelt de banen.</li>
-          <li>Bij een oneven aantal teams is er per ronde één team vrij (bye); dat team krijgt een forfaitwinst.</li>
-          <li>Met <span class="ui">Schema bekijken</span> controleer je alle wedstrijden vooraf.</li>
-          <li>Zijn er al scores ingevuld? Wis die eerst om opnieuw te kunnen loten.</li>
-          <li>Tik rechtsboven op <span class="ui">Naar toernooi</span> om te beginnen.</li>
+          <li>De app kijkt naar je teams, banen en rondes. Klopt iets niet? Dan zie je een melding met advies.</li>
+          <li>Twee teams spelen nooit twee keer tegen elkaar in hetzelfde toernooi.</li>
+          <li>Heb je genoeg banen voor alle teams? Dan speelt iedereen elke ronde.</li>
+          <li>Heb je minder banen dan nodig? Dan wachten sommige teams een rondje. De app verdeelt dat zo eerlijk mogelijk over alle teams.</li>
+          <li>Speel je met een oneven aantal teams (3, 5, 7, …)? Dan heeft elke ronde één team een vrije ronde.</li>
+          <li>Een vrije ronde telt als een gewonnen wedstrijd met de stand 13–6. Dat is een regel van de NJBB.</li>
+          <li>Wachten omdat er geen baan vrij is, telt niet mee in de ranglijst. Dat team speelt gewoon geen wedstrijd.</li>
+          <li>De loting is elke keer anders. Krijg je een paring die je liever niet wil? Tik nog een keer op <span class="ui">Schema genereren</span>.</li>
         </ul>
       </section>
 
@@ -413,6 +400,18 @@
         </ul>
       </section>
 
+      <section id="regels">
+        <h2>Officiële regels en bronnen</h2>
+        <p>BoulesDay volgt waar mogelijk de officiële NJBB-reglementen.</p>
+        <ul>
+          <li>Forfait bij vrije ronde of niet-gespeelde wedstrijd: <strong>13–6</strong>, conform art. 31.6 van het Toernooireglement Petanque.</li>
+          <li>Bron: <a href="https://nlpetanque.nl/Reglementen/ToernooiReglementPetanque.pdf">nlpetanque.nl/Reglementen/ToernooiReglementPetanque.pdf</a></li>
+          <li>Algemene reglementen: <a href="https://nlpetanque.nl/reglementen-formulieren">nlpetanque.nl/reglementen-formulieren</a></li>
+          <li>Vragen over een reglement? Reglementencommissie NJBB — <a href="mailto:info@njbb.nl">info@njbb.nl</a></li>
+          <li>Toernooien op locaties zonder NJBB-licentie (bv. ATV's, vakantieparken, bedrijfsuitjes) volgen dezelfde scoreregel.</li>
+        </ul>
+      </section>
+
       <section id="feedback">
         <h2>Feedback geven</h2>
         <p>BoulesDay wordt beter met jouw hulp.</p>
@@ -429,10 +428,11 @@
   <footer>
     <div class="links">
       <a href="index.html">Overzicht</a>
+      <a href="en/handleiding.html" lang="en">English</a>
       <a href="/privacy.html">Privacy</a>
       <a href="https://apps.apple.com/nl/app/boulesday/id6767690610">App Store</a>
     </div>
-    <div class="copyright">© 2026 René Geerlings</div>
+    <div class="copyright">© 2026 René Geerlings · <a href="https://nlpetanque.nl">NJBB-reglementen als bron</a></div>
     <div class="more">
       <strong>Meer van René:</strong>
       <a href="#stip">Stip Dagboek</a> ·
@@ -441,28 +441,17 @@
   </footer>
 
   <script>
-    // Highlight active TOC entry on scroll
     (function () {
       const links = Array.from(document.querySelectorAll('.toc a'));
-      const targets = links
-        .map(a => document.querySelector(a.getAttribute('href')))
-        .filter(Boolean);
+      const targets = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
       if (!('IntersectionObserver' in window) || !targets.length) return;
       const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
       const seen = new Set();
       const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if (e.isIntersecting) seen.add(e.target.id);
-          else seen.delete(e.target.id);
-        });
-        // Mark first visible target as active
+        entries.forEach(e => { if (e.isIntersecting) seen.add(e.target.id); else seen.delete(e.target.id); });
         links.forEach(a => a.classList.remove('is-active'));
         for (const t of targets) {
-          if (seen.has(t.id)) {
-            const a = byId.get(t.id);
-            if (a) a.classList.add('is-active');
-            break;
-          }
+          if (seen.has(t.id)) { const a = byId.get(t.id); if (a) a.classList.add('is-active'); break; }
         }
       }, { rootMargin: '-20% 0px -65% 0px', threshold: 0 });
       targets.forEach(t => obs.observe(t));

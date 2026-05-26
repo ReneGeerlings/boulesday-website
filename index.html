@@ -8,6 +8,8 @@
   <meta property="og:description" content="Een rustige toernooidag, geregeld door je iPad. Gratis iOS-app voor wedstrijdleiders.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://boulesday.nl">
+  <link rel="alternate" hreflang="nl" href="index.html">
+  <link rel="alternate" hreflang="en" href="en/index.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23c8553d'/%3E%3Ccircle cx='50' cy='50' r='8' fill='%23f4ead5'/%3E%3C/svg%3E">
   <title>BoulesDay — toernooi-leiding voor jeu de boules</title>
   <style>
@@ -27,6 +29,45 @@
     img { max-width: 100%; height: auto; display: block; }
     a { color: #c8553d; text-decoration: underline; text-underline-offset: 3px; }
     a:hover { color: #a04129; }
+
+    /* Topnav met taalwisselaar */
+    .topnav {
+      background: #f4ead5;
+      border-bottom: 1px solid #e6dfd1;
+      padding: 14px 24px;
+    }
+    .topnav__inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .topnav__brand {
+      font-family: "Georgia", "Times New Roman", serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1f2421;
+      text-decoration: none;
+    }
+    .topnav__brand:hover { color: #c8553d; }
+    .lang { display: flex; gap: 4px; font-size: 0.9rem; }
+    .lang a {
+      color: #5a5f5b;
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      line-height: 1.2;
+    }
+    .lang a:hover { color: #1f2421; }
+    .lang a.is-active {
+      color: #1f2421;
+      font-weight: 600;
+      background: #ede4d0;
+    }
+    .hero { border-top: 0; }
 
     /* Layout */
     .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
@@ -475,12 +516,22 @@
 </head>
 <body>
 
+  <nav class="topnav" aria-label="Hoofdnavigatie">
+    <div class="topnav__inner">
+      <a class="topnav__brand" href="index.html">BoulesDay</a>
+      <div class="lang" role="group" aria-label="Taal kiezen">
+        <a href="index.html" class="is-active" aria-current="page" lang="nl">NL</a>
+        <a href="en/index.html" lang="en">EN</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Hero -->
   <header class="hero">
     <div class="hero-grid">
       <div class="hero-copy">
         <h1>Een rustige toernooidag, geregeld door je iPad.</h1>
-        <p class="lead">BoulesDay helpt wedstrijdleiders bij eendaagse jeu-de-boules-toernooien. Werkt op iPad, iPhone en Mac.</p>
+        <p class="lead">BoulesDay helpt wedstrijdleiders bij eendaagse jeu-de-boules- of pétanque-toernooien. Werkt op iPad, iPhone en Mac.</p>
         <p class="tagline">Eén toestel, het hele toernooi.</p>
         <a class="appstore-btn" href="https://apps.apple.com/nl/app/boulesday/id6767690610" aria-label="Download BoulesDay in de App Store">
           <svg class="apple-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -508,6 +559,7 @@
     <div class="wrap">
       <h2>Voor wie</h2>
       <p>Voor wie een toernooi organiseert bij een NJBB-club, op een volkstuincomplex met jeu-de-boules-banen, op een vakantiepark of camping, in een buurthuis, bij een bedrijfsuitje, een familiedag, een jubileum. Of gewoon met de buren op zaterdag.</p>
+      <p>BoulesDay is gemaakt voor toernooien van één dag — geen meerdaagse competities, geen NJBB-licentie nodig.</p>
       <ul class="platforms">
         <li>
           <span class="platforms__label">iPad</span>
@@ -533,19 +585,23 @@
         <ol class="ordered-steps">
           <li>
             <strong>Toernooi opzetten</strong>
-            Naam, datum, banen, speelregels. Speel op punten, of op punten of tijd met vaste speeltijd per ronde.
+            Naam, datum, banen, teams en rondes — in een korte wizard.
           </li>
           <li>
-            <strong>Teams toevoegen</strong>
-            Twee spelers, of drie voor triplette.
+            <strong>Spelernamen en tijden</strong>
+            Twee spelers per team, of drie voor triplette. Aanvangstijden en pauzes naar wens.
           </li>
           <li>
-            <strong>Loten en banen verdelen</strong>
-            Willekeurig, zonder herhaalde ontmoetingen waar mogelijk. Bij oneven aantal teams: eerlijk verdeelde vrije beurten.
+            <strong>Schema genereren</strong>
+            Willekeurige loting, banen evenredig verdeeld, geen herhaalde ontmoetingen.
           </li>
           <li>
             <strong>Scores invoeren</strong>
             Tot 13, geen gelijkspel. Ranglijst werkt direct bij.
+          </li>
+          <li>
+            <strong>Eindstand</strong>
+            Podium, volledige ranglijst en alle uitslagen — zodra de laatste score binnen is.
           </li>
           <li>
             <strong>Printen of delen</strong>
@@ -568,6 +624,21 @@
       <h2>Wat het oplost</h2>
       <p>Geen spreadsheets bouwen voordat het toernooi begint. Geen papieren schema dat zoekraakt op tafel. Geen handmatig loten en bidden dat niemand twee keer dezelfde tegenstander krijgt. Geen rekenmachine voor de eindstand.</p>
       <p>Eén toestel, het hele toernooi.</p>
+    </div>
+  </section>
+
+  <!-- Over het schema -->
+  <section>
+    <div class="wrap">
+      <h2>Over het schema</h2>
+      <p>De app loot per ronde willekeurig, verdeelt de banen evenredig en houdt rekening met een paar regels.</p>
+      <ul>
+        <li>Twee teams treffen elkaar nooit twee keer in hetzelfde toernooi.</li>
+        <li>Verschillende soorten banen (binnen, buiten, overdekt) — teams worden evenredig over de typen verdeeld.</li>
+        <li>Bij een oneven aantal teams heeft elke ronde één team een vrije ronde. Die telt als gewonnen wedstrijd met de stand 13–6 — <a href="https://nlpetanque.nl/Reglementen/ToernooiReglementPetanque.pdf">conform NJBB art. 31.6</a>.</li>
+        <li>Bij krappe banen wachten sommige teams een ronde. Dat wachten telt niet mee in de ranglijst en wordt eerlijk verdeeld.</li>
+        <li>Elke loting is anders — opnieuw genereren geeft een nieuwe indeling.</li>
+      </ul>
     </div>
   </section>
 
@@ -651,10 +722,11 @@
   <footer>
     <div class="links">
       <a href="handleiding.html">Handleiding</a>
+      <a href="en/index.html" lang="en">English</a>
       <a href="/privacy.html">Privacy</a>
       <a href="https://apps.apple.com/nl/app/boulesday/id6767690610">App Store</a>
     </div>
-    <div class="copyright">© 2026 René Geerlings</div>
+    <div class="copyright">© 2026 René Geerlings · <a href="https://nlpetanque.nl">NJBB-reglementen als bron</a></div>
     <div class="more">
       <strong>Meer van René:</strong>
       <a href="#stip">Stip Dagboek</a> ·
